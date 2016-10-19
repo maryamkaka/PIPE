@@ -1,0 +1,81 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head><title>Retrieve/ID mapping</title><meta content="IE=edge" http-equiv="X-UA-Compatible"/><meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/><meta content="width=device-width, initial-scale=1" name="viewport"/><link href="/" rel="home"/><link href="http://creativecommons.org/licenses/by-nd/3.0/" rel="license"/><link type="image/vnd.microsoft.icon" href="/favicon.ico" rel="shortcut icon"/><link href="http://ebi-uniprot.github.io/CDN/protvista/css/protvista.css" rel="stylesheet"/><link href="/css-compr.css2016_09" type="text/css" rel="stylesheet"/><script type="text/javascript">
+			var BASE = '/';
+			var image_x_inverse = '/images/x_inverse.png';
+		</script>
+		<!--[if lte IE 8]><script charset="utf-8" src="/scripts/frontier/d3/r2d3.min.js"></script><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"/><![endif]-->
+		<!--[if gte IE 9]>  <!-->
+			<script src="/scripts/frontier/d3/d3.v3.min.js" type="text/javascript"></script>
+		<!-- <![endif]-->
+
+<script type="text/javascript">
+			var isInternal = false;
+		</script><script src="/js-compr.js2016_09" type="text/javascript"></script><script type="text/javascript">
+				uniprot.namespace = 'uniprot';
+				onRdyFn(function(){
+					if (false) {
+						var shouldShowBasket = true;
+						switch(uniprot.namespace) {
+							case 'uniprot':
+							case 'uniref' :
+							case 'uniparc' :
+								break;
+							default:
+								shouldShowBasket = uniprot.basket.getTotalBasketSize() !== 0;
+							}
+						if(!shouldShowBasket) {
+							$('#basket').hide();
+						}
+					}
+				},'high');
+			</script><script type="text/javascript">uniprot.cookie = new Cookie('uniprot.org');</script><script type="text/javascript">
+			;
+		</script></head><body xmlns:up="http://purl.uniprot.org/core/" class="namespace-uploadlists" typeof="schema:WebPage"><span id="evidenceToolTip" style="display:none">&#xd;
+&lt;p>An evidence describes the source of an annotation, e.g. an experiment that has been published in the scientific literature, an orthologous protein, a record from another database, etc.&lt;/p>&#xd;
+&#xd;
+&#xd;
+	&lt;p>&lt;a href="/manual/evidences">More…&lt;/a>&lt;/p>      </span>
+			<!--[if lte IE 8]>
+				<style type="text/css">
+					#browserwarning {
+						display:block;
+					};
+				</style>
+			<![endif]-->
+	 	<p style="display:none"><a accesskey="2" href="#content">Skip Header</a></p><div id="masthead-container"><div class="masthead" id="local-masthead"><div id="local-title"><h5><a id="logo" accesskey="1" href="/"><img alt="" src="/images/logos/Logo_medium.png" title="UniProt home"/></a></h5></div><div class="namespace-uniprot" id="local-search"><form method="get" action="/uniprot" id="search-form"><div id="namespace-background"><div class="searchBoxIndicator" id="searchBoxIndicator1"> </div><div onclick="location.href=&#039;/help/text-search&#039;;" class="searchBoxIndicator" id="searchBoxIndicator2"> </div><div onclick="location.href=&#039;/help/advanced_search &#039;;" class="searchBoxIndicator" id="searchBoxIndicator3"> </div><script type="text/javascript">
+			onRdyFn(uniprot.searchbar.init);
+			</script><a class="namespace-select" id="select-namespace" onclick="return false;" href=""><span class="caret_white" id="selected-namespace">UniProtKB</span></a><ul class="select-namespace-options"><a href="#" class="closeBox" id="closeNamespaceOptions">x</a><li><ul><li class="fixedHeight_namespaces"><h3 class="namespace_uniprot"><a class="namespace-option uniprot" href="#" id="uniprot">UniProtKB</a></h3><p>Protein knowledgebase</p></li><li class="fixedHeight_namespaces"><h3 class="namespace_uniparc"><a class="namespace-option uniparc" href="#" id="uniparc">UniParc</a></h3><p>Sequence archive</p></li><li class="fixedHeight_namespaces"><h3 class="namespace_help"><a class="namespace-option help" href="#" id="help">Help</a></h3><p>Help pages, FAQs, UniProtKB manual, documents, news archive and Biocuration projects.</p></li></ul></li><li><ul><li class="fixedHeight_namespaces"><h3 class="namespace_uniref"><a class="namespace-option uniref" href="#" id="uniref">UniRef</a></h3><p>Sequence clusters</p></li><li class="fixedHeight_namespaces"><h3 class="namespace_proteomes"><a class="namespace-option proteomes" href="#" id="proteomes">Proteomes</a></h3><p>Protein sets from fully sequenced genomes</p></li><li class="fixedHeight_namespaces"><h3 class="namespace_unirule">Annotation systems</h3><p class="supportingLeadingText">Systems used to automatically annotate proteins with high accuracy:</p><ul class="supportingDataOptions"><li><a class="namespace-option supporting" href="#" id="unirule">UniRule (Expertly curated rules)</a></li><li><a class="namespace-option supporting" href="#" id="saas">SAAS (System generated rules)</a></li></ul></li></ul></li><li><ul><li class="fixedHeight_namespaces"><h3 class="supporting"><span href="#">Supporting data</span></h3><p class="supportingLeadingText">Select one of the options below to target your search:</p><ul class="supportingDataOptions"><li><a class="namespace-option supporting" href="#" id="citations">Literature citations</a></li><li><a class="namespace-option supporting" href="#" id="taxonomy">Taxonomy</a></li><li><a class="namespace-option supporting" href="#" id="keywords">Keywords</a></li><li><a class="namespace-option supporting" href="#" id="locations">Subcellular locations</a></li><li><a class="namespace-option supporting" href="#" id="database">Cross-referenced databases</a></li><li><a class="namespace-option supporting" href="#" id="diseases">Human diseases</a></li></ul></li></ul></li></ul><input value="P13368 P20806" id="topQuery" type="hidden"/><input id="query" value="P13368 P20806" accesskey="4" name="query" type="search"/><a class="caret_grey" href="#" id="advanced-search-toggle">Advanced</a><input value="score" name="sort" type="hidden"/><a id="search-button" title="Search" data-icon="1" class="icon icon-functional button" onclick="return false" href="">Search</a><script type="text/javascript">
+			onRdyFn(function() {
+				nameSpaceSelector();
+				uniprot.advSearchUI.template(uniprot.namespace);
+			});
+			</script><div class="advSearch" id="query-builder-container"><div style="padding-top:1%" class="advSearchHeader"><a href="#" class="closeBox" id="closeAdvanceSearch">x</a>
+					Searching in <span id="namespaceInAdv"></span></div><div style="margin-top:2%" class="filterList" id="filterList"></div><div class="advButtons"><a data-icon="1" href="#" class="icon icon-functional button" id="advSearchButton"></a></div></div></div></form></div><div id="nav"><ul id="local-nav"><li class="mobileHomeLink"><a href="/">Home</a></li><li class="first"><a class="tooltipped" title="Find regions of local similarity between sequences" onclick="return uniprot.blast.checkSelectionsAndSubmit();" href="/blast">BLAST</a></li><li><a class="tooltipped" title="Align two or more protein sequences with the Clustal Omega program" onclick="return uniprot.align.checkSelectionsAndSubmit();" accesskey="9" href="/align">Align</a></li><li class="last"><a class="tooltipped" title="Submit a list of identifiers to retrieve the corresponding UniProt entries, or to map them from or to an external database" rel="help" onclick="return (new upload()).uploadLinkHandler();" href="/uploadlists" id="upload-lists-nav">Retrieve/ID mapping</a></li><li class="last"><a class="tooltipped" title="Submit a list of peptides to find UniProt sequences containing them" rel="help" href="/peptidesearch" id="peptidesearch-lists-nav">Peptide search</a></li><li class="functional last"><a accesskey="9" href="/contact" id="contact">Contact</a></li><li class="functional"><a rel="help" href="/help/" id="help">Help</a></li></ul></div></div></div><div class="warn" id="browserwarning">You are using a version of browser that may not display all the features of this website. Please consider upgrading <a href="/help/browser_support">your browser</a>.</div><main class="uploadlists" property="schema:about" resource="" typeof="" id="content"><section id="page-header"><h2 class="page-title">Retrieve/ID mapping</h2><div style="display:none" class="helpcontent" id="help-uploadlists"><a class="closeBox" id="closeHelp" href="#">x</a><div class="helpBoxContainer"><div class="helpBoxPanel subheading"><h5>How to use this tool</h5></div><div class="helpBoxPanel">
+					Enter or upload a list of identifiers to do one of the following:
+					<ul><li>Retrieve the corresponding UniProt entries to download them or work with them on this website.</li><li>Convert identifiers which are of a different type to UniProt identifiers or vice versa and download the identifier lists.</li></ul></div></div><div class="helpBoxContainer"><div class="helpBoxPanel"><ol><li>Enter identifiers, separated by spaces or new lines, into the form field, for example:
+				        <div class="indent">
+				            P31946 P62258<br/>
+				            ALBU_HUMAN<br/>
+				            EFTU_ECOLI<br/></div></li><li>If you need to convert to another identifier type, select the source and target type from the dropdown menus.</li><li>Click the <i>Go</i> button.</li></ol></div><div class="helpLinks"><a data-icon="?" class="icon icon-generic namespaceIcons" href="/help/mapping">Help</a><a data-icon="V" class="icon icon-generic namespaceIcons" target="_blank" href="https://www.youtube.com/watch?v=kLdgjqWoMZc">Help video</a><a data-icon="V" class="icon icon-generic namespaceIcons" target="_blank" href="https://www.youtube.com/channel/UCkCR5RJZCZZoVTQzTYY92aw">Other tutorials and videos</a><a data-icon="=" class="icon icon-functional namespaceIcons" href="/downloads">Downloads</a></div></div></div><div id="top-right-actions"><a data-icon="?" class=" icon icon-generic " id="showHelp" href="#">About Upload lists</a><script type="text/javascript">
+	onRdyFn(function(){
+			new helpBlog('uploadlists','P13368 P20806');
+		},'high');
+	</script></div></section> <div class="main"><form enctype="multipart/form-data" method="post" url="/uploadlists/" action="/uploadlists/" id="mapping-form"><input type="hidden" value="false" name="landingPage"/><div><h3>1. Provide your identifiers</h3><script type="text/javascript">
+						onRdyFn(function(){
+							$('#uploadQuery').inputHints();
+						});			
+					</script><div><div class="uploadListsInputboxx"><input value="" name="jobId" type="hidden"/><textarea title="e.g. P31946 P62258 ALBU_HUMAN EFTU_ECOLI" id="uploadQuery" name="uploadQuery" class="queryInput uploadListsTextarea sequence-textarea"></textarea><input type="text" name="url2" style="display:none" /><div class="uploadFilex"><strong>OR</strong> upload your own file: 
+							<input id="uploadfile" name="file" class="uploadList" type="file"/><span style="display:none" id="fileNamePlaceHolder"><span data-icon="x" class="icon icon-functional tooltipped" title="Clear file uploading" id="fileUploadCross">  </span></span></div><input id="newTabCheckbox" name="newTabCheckbox" type="checkbox"/><label for="newTabCheckbox">Run in a new window.</label></div></div></div><div><h3>2. Select options</h3><div class="uploadDatabaseSelect"><span id="fromDatabase" class="selectOptions"> </span><span id="toDatabase" class="selectOptions"> </span><span id="organismAutoComplete" style="display:none" class="selectOptions"><p class="label">Organism</p><p class="builder"><input name="taxon" id="taxon"/></p></span><a title="Upload your list and view results" class="button go uploadGo tooltipped" href="" id="submitList"> Go </a></div></div></form><script type="text/javascript">
+				onRdyFn((new upload()).init);
+			</script></div><span id="advanced-Blast"><span class="toolTipContent" style="display:none">&lt;p>This will take you to the BLAST page where you can edit options &lt;/p>&lt;p>&lt;a href="/help/sequence-searches">More..&lt;/a>&lt;/p></span></span></main><footer id="page-footer"><section class="html5-section"><h5>Tools</h5><ul><li><a href="/blast">BLAST</a></li><li><a href="/align">Align</a></li><li><a href="/uploadlists">Retrieve/ID mapping</a></li><li><a href="/peptidesearch">Peptide search</a></li></ul></section><section class="html5-section"><h5>Core data</h5><ul><li><a href="/uniprot">Protein knowledgebase (UniProtKB)</a></li><li><a href="/uniref">Sequence clusters (UniRef)</a></li><li><a href="/uniparc">Sequence archive (UniParc)</a></li><li><a href="/proteomes">Proteomes</a></li></ul></section><section class="html5-section"><h5>Supporting data</h5><ul><li><a href="/citations">Literature citations</a></li><li><a href="/taxonomy">Taxonomy</a></li><li><a href="/keywords">Keywords</a></li><li><a href="/locations">Subcellular locations</a></li><li><a href="/database">Cross-referenced databases</a></li><li><a href="/diseases">Diseases</a></li></ul></section><section class="html5-section"><h5>Information</h5><ul><li><a href="/help/about">About UniProt</a></li><li><a href="/help">Help</a></li><li><a href="/help/?fil=section:faq">FAQ</a></li><li><a href="/help/?fil=section:manual">UniProtKB manual</a></li><li><a href="/help/technical">Technical corner</a></li><li><a href="/help/?query=*&amp;fil=section:biocuration">Expert biocuration</a></li></ul></section><section class="html5-footer small"><div class="uniprotlogo"><img src="/images/uniprot_logo_trans.png"/></div>
+			&copy; 2002 &ndash;
+			<span property="schema:copyrightYear">2016</span>
+			<a accesskey="9" href="/help/about">UniProt Consortium</a> | <a href="/help/license">License &amp; Disclaimer</a><div resource="/help/about#UniProt" id="logos" typeof="schema:NGO" property="schema:creator"><span resource="/help/about#EBI" typeof="schema:Organization" property="schema:member"><span class="hidden" property="schema:name">European Bioinformatics Institute</span><a href="http://www.ebi.ac.uk/" class="ebi" property="schema:url"></a></span><span resource="/help/about#PIR" typeof="schema:Organization" property="schema:member"><span class="hidden" property="schema:name">Protein Information Resource</span><a href="http://pir.georgetown.edu/" class="pir" property="schema:url"></a></span><span resource="/help/about#SIB" typeof="schema:Organization" property="schema:member"><span class="hidden" property="schema:name">SIB Swiss Institute of Bioinformatics</span><a href="http://www.sib.swiss/" class="sib" property="schema:url"></a></span></div></section></footer><script type="text/javascript">
+				var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+				document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+			</script><script type="text/javascript">
+						_gaq.push(
+								  ['_setAccount',"UA-6228219-1"],
+								  ['_trackPageview']
+								 );
+					</script></body></html>
