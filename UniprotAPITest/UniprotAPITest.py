@@ -1,13 +1,14 @@
 import urllib.request
 import urllib.parse
 
-url = 'http://www.uniprot.org/uploadlists/'
+url = 'http://www.uniprot.org/'
 
 params = {
 	'from':'ACC', 
 	'to':'P_REFSEQ_AC', 
 	'format':'tab', 
-	'query':'P13368 P20806'
+	'columns':'domains', 
+	'query':'P13368 P20806',
 }
 
 data = urllib.parse.urlencode(params)
@@ -24,3 +25,4 @@ protein = response.read()
 f = open('recievedData', 'wb')
 f.write(protein)
 f.close()
+print('Successfully written to file')
