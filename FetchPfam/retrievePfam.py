@@ -1,7 +1,7 @@
 import urllib.request
 import urllib.parse
 
-def uniprot(protein):
+def retrievePfam(protein):
     url = 'http://www.uniprot.org/uniprot/'
 
     params = {
@@ -16,4 +16,4 @@ def uniprot(protein):
 
     pfam = response.read()
     pfam = pfam.decode().split('\n')[1].replace(';', '\t')
-    return pfam 
+    return pfam
