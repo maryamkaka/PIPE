@@ -15,5 +15,10 @@ def retrievePfam(protein):
     response = urllib.request.urlopen(request)
 
     pfam = response.read()
-    pfam = pfam.decode().split('\n')[1].replace(';', '\t')
+
+    try:
+        pfam = pfam.decode().split('\n')[1].replace(';', ' ')
+    except IndexError:
+        pfam = ''
+
     return pfam
