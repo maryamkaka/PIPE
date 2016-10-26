@@ -87,3 +87,6 @@ ENV/
 
 # Rope project settings
 .ropeproject
+
+#large files
+Accessing_3did/3did_flat
