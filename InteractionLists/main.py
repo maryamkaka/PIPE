@@ -3,7 +3,7 @@ pfam = {}
 with open('ProteinFiles/ProteinPfam.txt') as f:
     for line in f:
         line = line.strip('\n').split(' ')
-        pfam[line[0]] = line[1:-1]
+        pfam[line[0]] = line[1:]
 
 #Load interactingDomainPairs info
 interactingDomains = {}
@@ -31,13 +31,13 @@ with open('ProteinFiles/protein_pairs.txt') as f:
     for line in f:
         domainMatch.append([])
 
-        line = line.strip('\n').replace(' ', '').split('\t')
+        line = line.strip('\n').split()
         proteinA = pfam[line[0]]
         proteinB = pfam[line[1]]
 
         #check for interacting domains
         for dA in proteinA:
-            if(~(dA in interactingDomains)):    #break if current doamin has no interacting pairs
+            if((dA in interactingDomains) == False):    #break if current doamin has no interacting pairs
                 continue
 
             AInteractions = interactingDomains[dA]
@@ -46,7 +46,7 @@ with open('ProteinFiles/protein_pairs.txt') as f:
                     domainMatch[-1].append([dA, dB])
 
         #output to file
-        if(len(domainMatch[-1])):
+        if(len(domainMatch[-1]) == 1):
             one.write(line[0] + '\t' + line[1] + '\n')
         elif(len(domainMatch[-1]) == 0):
             none.write(line[0] + '\t' + line[1]+ '\n')
