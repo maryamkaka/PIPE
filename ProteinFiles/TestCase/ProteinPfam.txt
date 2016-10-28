@@ -1,2 +1,2 @@
 PA d1 d2
-PB d2 d4
+PB d3 d4
