@@ -1,13 +1,13 @@
 #load ProteinPfam into dictionary
 pfam = {}
-with open('ProteinFiles/TestCase/Case2/ProteinPfam.txt') as f:
+with open('ProteinFiles/TestCase/Case3/ProteinPfam.txt') as f:
     for line in f:
         line = line.strip('\n').split(' ')
         pfam[line[0]] = line[1:]
 
 #Load interactingDomainPairs info
 interactingDomains = {}
-with open('ProteinFiles/TestCase/Case2/interactingDomainPairs.txt') as f:
+with open('ProteinFiles/TestCase/Case3/interactingDomainPairs.txt') as f:
     for line in f:
         line = line.replace('\n', '').split(' ')
 
@@ -22,7 +22,7 @@ with open('ProteinFiles/TestCase/Case2/interactingDomainPairs.txt') as f:
             interactingDomains[line[1]] = [line[0]]
 
 #determine interacting domains for protein pair
-with open('ProteinFiles/TestCase/Case2/protein_pairs.txt') as f:
+with open('ProteinFiles/TestCase/Case3/protein_pairs.txt') as f:
     domainMatch = []
     one = open('InteractionLists/TestCase/one.txt', 'w')
     none = open('InteractionLists/TestCase/none.txt', 'w')
@@ -47,7 +47,7 @@ with open('ProteinFiles/TestCase/Case2/protein_pairs.txt') as f:
                     domainMatch[-1].append([dA, dB])
 
         #output to file
-        if(len(domainMatch[-1])):
+        if(len(domainMatch[-1]) == 1):
             one.write(line[0] + '\t' + line[1] + '\n')
         elif(len(domainMatch[-1]) == 0):
             none.write(line[0] + '\t' + line[1]+ '\n')
