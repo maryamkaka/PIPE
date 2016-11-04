@@ -24,9 +24,9 @@ with open('ProteinFiles/interactingDomainPairs.txt') as f:
 #determine interacting domains for protein pair
 with open('ProteinFiles/protein_pairs.txt') as f:
     domainMatch = []
-    one = open('InteractionLists/one.txt', 'w')
-    none = open('InteractionLists/none.txt', 'w')
-    multi = open('InteractionLists/multi.txt', 'w')
+    one = open('InteractionLists/singleDomain.txt', 'w')
+    none = open('InteractionLists/noDomain.txt', 'w')
+    multi = open('InteractionLists/multiDomain.txt', 'w')
 
     for line in f:
         domainMatch.append([])
