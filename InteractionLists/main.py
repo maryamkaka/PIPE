@@ -28,6 +28,8 @@ with open('ProteinFiles/protein_pairs.txt') as f:
     none = open('InteractionLists/noDomain.txt', 'w')
     multi = open('InteractionLists/multiDomain.txt', 'w')
 
+    one.write('ProteinA\tProteinB\tDomainA\tDomainB\n')
+
     for line in f:
         domainMatch.append([])
 
@@ -47,7 +49,7 @@ with open('ProteinFiles/protein_pairs.txt') as f:
 
         #output to file
         if(len(domainMatch[-1]) == 1):
-            one.write(line[0] + '\t' + line[1] + '\n')
+            one.write(line[0] + '\t' + line[1] + '\t' + domainMatch[-1][0][0] + '\t' + domainMatch[-1][0][1] + '\n')
         elif(len(domainMatch[-1]) == 0):
             none.write(line[0] + '\t' + line[1]+ '\n')
         else:
