@@ -4,7 +4,7 @@ import numpy as np
 
 #variables
 displayCharts = 0
-verbose = 1
+verbose = 0
 
 def printDict(d):
     for i in d:
@@ -15,6 +15,9 @@ proteinA = []
 proteinB = []
 domainA = []
 domainB = []
+proteinLen = {}
+domainLen = {}
+
 with open('InteractionLists/singleDomain.txt') as f:
     for line in f:
         line = line.strip('\n').split('\t')
@@ -27,6 +30,16 @@ with open('InteractionLists/singleDomain.txt') as f:
     proteinB.pop(0)
     domainA.pop(0)
     domainB.pop(0)
+
+with open('ProteinFiles/proteinLength.txt') as f:
+    for line in f:
+        line = line.strip('\n').split('\t')
+        proteinLen[line[0]] = int(line[1])
+
+with open('ProteinFiles/DomainLength.txt') as f:
+    for line in f:
+        line = line.strip('\n').split('\t')
+        domainLen[line[0]] = int(line[1])
 
 # find number of unique proteins and domains
 proteins = dict(collections.Counter(proteinA + proteinB))
@@ -64,4 +77,13 @@ plt.xlabel('Number of Interactions')
 plt.ylabel('Number of Domains')
 plt.grid(True)
 plt.savefig('InteractionLists/stats/Domains.png', bbox_inches='tight')
+if(displayCharts): plt.show();
+
+plt.figure(2)
+plt.hist(list(domainLen.values()), bins=100)
+plt.title('Domain Length')
+plt.xlabel('Domain Length')
+plt.ylabel('Number of Domains')
+plt.grid(True)
+plt.savefig('InteractionLists/stats/DomainLength.png', bbox_inches='tight')
 if(displayCharts): plt.show();
