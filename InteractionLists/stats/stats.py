@@ -4,6 +4,11 @@ import numpy as np
 
 #variables
 displayCharts = 0
+verbose = 1
+
+def printDict(d):
+    for i in d:
+        print(i + ': ' + str(d[i]))
 
 # Import data
 proteinA = []
@@ -30,6 +35,16 @@ domains = dict(collections.Counter(domainA + domainB))
 print('Number of unique proteins: ' + str(len(proteins)))
 print('Number of unique domains: ' + str(len(domains)))
 
+#find proteins/domains with 10+ Interactions
+if(verbose):
+    temp = {k:v for (k,v) in proteins.items() if v > 15}
+    print('Proteins with 15+ interactions (' + str(len(temp)) + '):')
+    printDict(temp)
+
+    temp = {k:v for (k,v) in domains.items() if v > 15}
+    print('Domains with 15+ interactions ('  + str(len(temp)) + '):')
+    printDict(temp)
+
 #import pdb; pdb.set_trace()
 
 # plots
@@ -39,7 +54,7 @@ plt.title('Histogram of Interacting Proteins')
 plt.xlabel('Number of Interactions')
 plt.ylabel('Number of Proteins')
 plt.grid(True)
-plt.savefig('InteractionLists/Figures/Proteins.png', bbox_inches='tight')
+plt.savefig('InteractionLists/stats/Proteins.png', bbox_inches='tight')
 if(displayCharts): plt.show();
 
 plt.figure(1)
@@ -48,5 +63,5 @@ plt.title('Histogram of Interacting Domains')
 plt.xlabel('Number of Interactions')
 plt.ylabel('Number of Domains')
 plt.grid(True)
-plt.savefig('InteractionLists/Figures/Domains.png', bbox_inches='tight')
+plt.savefig('InteractionLists/stats/Domains.png', bbox_inches='tight')
 if(displayCharts): plt.show();
