@@ -1,4 +1,5 @@
 import collections
+import untangle
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -9,6 +10,21 @@ verbose = 1
 def printDict(d):
     for i in d:
         print(i + ': ' + str(d[i]))
+
+def pfamConnect(protein):
+    url = 'http://pfam.xfam.org/protein/'
+
+    xml = untangle.parse(url + protein + '?output=xml').pfam.entry
+
+    proteinLength = int(xml.sequence['length'])
+    domainLength = {}
+
+    #extract data
+    for i in range(0, len(xml.matches.match)):
+        current = xml.matches.match
+        domainLength[current[i]['accession']] = int(current[i].location['end']) - int(current[i].location['start'])
+
+    return [proteinLength, domainLength]
 
 # Import data
 proteinA = []
