@@ -4,7 +4,7 @@ import numpy as np
 
 #variables
 displayCharts = 0
-verbose = 0
+verbose = 1
 
 def printDict(d):
     for i in d:
@@ -58,7 +58,19 @@ if(verbose):
     print('Domains with 15+ interactions ('  + str(len(temp)) + '):')
     printDict(temp)
 
-#import pdb; pdb.set_trace()
+# find relative domain length
+relDomainLen = {}
+for i in range(0, len(proteinA)):
+	key = proteinA[i] + '-' + domainA[i]
+	if(not(key in relDomainLen)):
+		relDomainLen[key] = domainLen[domainA[i]]/proteinLen[proteinA[i]]
+for i in range(0, len(proteinB)):
+	key = proteinB[i] + '-' + domainB[i]
+	if(not(key in relDomainLen)):
+		relDomainLen[key] = domainLen[domainB[i]]/proteinLen[proteinB[i]]
+
+print('Number of unique Protein-domain Interactions: ' + str(len(relDomainLen)))
+import pdb; pdb.set_trace();
 
 # plots
 plt.figure(0)
@@ -80,10 +92,28 @@ plt.savefig('InteractionLists/stats/Domains.png', bbox_inches='tight')
 if(displayCharts): plt.show();
 
 plt.figure(2)
+plt.hist(list(proteinLen.values()), bins=1000)
+plt.title('Protein Length')
+plt.xlabel('Protein Length')
+plt.ylabel('Number of Proteins')
+plt.grid(True)
+plt.savefig('InteractionLists/stats/ProteinLength.png', bbox_inches='tight')
+if(displayCharts): plt.show();
+
+plt.figure(3)
 plt.hist(list(domainLen.values()), bins=100)
 plt.title('Domain Length')
 plt.xlabel('Domain Length')
 plt.ylabel('Number of Domains')
 plt.grid(True)
 plt.savefig('InteractionLists/stats/DomainLength.png', bbox_inches='tight')
+if(displayCharts): plt.show();
+
+plt.figure(4)
+plt.hist(list(relDomainLen.values()), bins=100)
+plt.title('Domain Length (%)')
+plt.xlabel('Domain Length (%)')
+plt.ylabel('Number of Domains')
+plt.grid(True)
+plt.savefig('InteractionLists/stats/DomainLengthPercent.png', bbox_inches='tight')
 if(displayCharts): plt.show();
