@@ -38,25 +38,18 @@ with open('InteractionLists/singleDomain.txt') as f:
     domainB.pop(0)
 
 # find number of unique proteins and domains
-proteins = dict(collections.Counter(proteinA + proteinB))
-domains = dict(collections.Counter(domainA + domainB))
-
-# find length of proteins and domains
-proteinLength = {}
-domainLength = {}
+proteins = (proteinA + proteinB)
+domains = (domainA + domainB)
 
 proteinLengthOutput = open('ProteinFiles/proteinLength.txt', 'w')
 domainLengthOutput = open('ProteinFiles/DomainLength.txt', 'w')
 
-for p in proteins:
-    [pLen, domLen] = pfamConnect(p)
+for i in range(0, len(proteins)):
+    [pLen, dLen] = pfamConnect(proteins[i])
 
-    proteinLength[p] = pLen
-    print(p + '\t' + str(pLen))
-    proteinLengthOutput.write(p + '\t' + str(pLen) + '\n')
+    import pdb; pdb.set_trace()
+    print(proteins[i] + '\t' + str(pLen))
+    proteinLengthOutput.write(proteins[i] + '\t' + str(pLen) + '\n')
 
-    for d in domLen:
-        if(not(d in domainLength) and (d in domains)):
-            domainLength[d] = domLen[d]
-            print(d + '\t' + str(domLen[d]))
-            domainLengthOutput.write(d + '\t' + str(domLen[d]) + '\n')
+    print(proteins[i] + '-' + domains[i] + '\t' + str(dLen[domains[i]]))
+    domainLengthOutput.write(proteins[i] + '-' + domains[i] + '\t' + str(dLen[domains[i]]) + '\n')
