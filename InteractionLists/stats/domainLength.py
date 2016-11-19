@@ -24,6 +24,9 @@ proteinA = []
 proteinB = []
 domainA = []
 domainB = []
+proteinLen = {}
+domainLen = {}
+
 with open('InteractionLists/singleDomain.txt') as f:
     for line in f:
         line = line.strip('\n').split('\t')
@@ -45,11 +48,18 @@ proteinLengthOutput = open('ProteinFiles/proteinLength.txt', 'w')
 domainLengthOutput = open('ProteinFiles/DomainLength.txt', 'w')
 
 for i in range(0, len(proteins)):
+    key = proteins[i] + '-' + domains[i]
+
+    if(key in domainLen):
+        continue
+
     [pLen, dLen] = pfamConnect(proteins[i])
 
-    import pdb; pdb.set_trace()
-    print(proteins[i] + '\t' + str(pLen))
-    proteinLengthOutput.write(proteins[i] + '\t' + str(pLen) + '\n')
+    if(not(proteins[i] in proteinLen)):
+        proteinLen[proteins[i]] = pLen
+        print(proteins[i] + '\t' + str(pLen))
+        proteinLengthOutput.write(proteins[i] + '\t' + str(pLen) + '\n')
 
+    domainLen[key] = dLen
     print(proteins[i] + '-' + domains[i] + '\t' + str(dLen[domains[i]]))
-    domainLengthOutput.write(proteins[i] + '-' + domains[i] + '\t' + str(dLen[domains[i]]) + '\n')
+    domainLengthOutput.write(key + '\t' + str(dLen[domains[i]]) + '\n')
