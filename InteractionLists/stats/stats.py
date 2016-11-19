@@ -61,21 +61,21 @@ if(verbose):
 # find relative domain length
 relDomainLen = {}
 for i in range(0, len(proteinA)):
-	key = proteinA[i] + '-' + domainA[i]
-	if(not(key in relDomainLen)):
-		relDomainLen[key] = domainLen[domainA[i]]/proteinLen[proteinA[i]]
+    key = proteinA[i] + '-' + domainA[i]
+    if(not(key in relDomainLen)):
+        relDomainLen[key] = domainLen[key]/proteinLen[proteinA[i]]
+
 for i in range(0, len(proteinB)):
-	key = proteinB[i] + '-' + domainB[i]
-	if(not(key in relDomainLen)):
-		relDomainLen[key] = domainLen[domainB[i]]/proteinLen[proteinB[i]]
+    key = proteinB[i] + '-' + domainB[i]
+    if(not(key in relDomainLen)):
+        relDomainLen[key] = domainLen[key]/proteinLen[proteinB[i]]
 
 print('Number of unique Protein-domain Interactions: ' + str(len(relDomainLen)))
-import pdb; pdb.set_trace();
 
 # plots
 plt.figure(0)
 plt.hist(list(proteins.values()), bins=50)
-plt.title('Histogram of Interacting Proteins')
+plt.title('Number of Interactions per Proteins')
 plt.xlabel('Number of Interactions')
 plt.ylabel('Number of Proteins')
 plt.grid(True)
@@ -84,7 +84,7 @@ if(displayCharts): plt.show();
 
 plt.figure(1)
 plt.hist(list(domains.values()), bins=50)
-plt.title('Histogram of Interacting Domains')
+plt.title('Number of Interactions per Domain')
 plt.xlabel('Number of Interactions')
 plt.ylabel('Number of Domains')
 plt.grid(True)
@@ -92,7 +92,7 @@ plt.savefig('InteractionLists/stats/Domains.png', bbox_inches='tight')
 if(displayCharts): plt.show();
 
 plt.figure(2)
-plt.hist(list(proteinLen.values()), bins=1000)
+plt.hist(list(proteinLen.values()), bins=100)
 plt.title('Protein Length')
 plt.xlabel('Protein Length')
 plt.ylabel('Number of Proteins')
