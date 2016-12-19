@@ -7,3 +7,5 @@ Collection of scripts used for research project
 * `ProteinPfam` - list of proteins and associated pfam domains
 * `interactingDomainPair.txt` - list of all interacting domains (obtained from [3did](http://3did.irbbarcelona.org/))
 * [`3did_flat`](http://3did.irbbarcelona.org/download/current/3did_flat.gz) - flat files downloadable from 3did which contain the core information of 3did
+[* `Pr[oteinLength.txt` - list of length of proteins (same info found in `length.txt`)
+* `length.txt` - list of domain location in associated proteinddfadfddddddd
