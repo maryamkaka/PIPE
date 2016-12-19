@@ -1,4 +1,5 @@
-Protein	Domain	ProteinLength	DomainLength	DomainStart	DomainEndA5YKK6	PF04054	2376	359	1998	2357
+Protein	Domain	ProteinLength	DomainLength	DomainStart	DomainEnd
+A5YKK6	PF04054	2376	359	1998	2357
 O00220	PF00531	468	81	367	448
 O00237	PF13639	685	44	619	663
 O00257	PF00385	560	49	11	60

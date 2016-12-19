@@ -47,12 +47,12 @@ proteins = (proteinA + proteinB)
 domains = (domainA + domainB)
 
 length = open('ProteinFiles/length.txt', 'w')
-length.write('Protein\tDomain\tProteinLength\tDomainLength\tDomainStart\tDomainEnd')
+length.write('Protein\tDomain\tProteinLength\tDomainLength\tDomainStart\tDomainEnd\n')
 done = []
 
 for i in range(0, len(proteins)):
     key = proteins[i] + '-' + domains[i]
-    
+
     if(key in done):
         continue
     done.append(key)
