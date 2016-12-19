@@ -13,9 +13,13 @@ def pfamConnect(protein):
     try:
         for i in range(0, len(xml.matches.match)):
             current = xml.matches.match
-            domainLength[current[i]['accession']] = int(current[i].location['end']) - int(current[i].location['start'])
+            start = int(current[i].location['start'])
+            end = int(current[i].location['end'])
+            domainLength[current[i]['accession']] =  [start, end, end - start]
     except TypeError:
-        domainLength[xml.matches.match['accession']] = int(xml.matches.match.location['end']) - int(xml.matches.match.location['start'])
+        start = int(xml.matches.match.location['start'])
+        end = int(xml.matches.match.location['end'])
+        domainLength[xml.matches.match['accession']] =  [start, end, end - start]
 
     return [proteinLength, domainLength]
 
@@ -24,8 +28,6 @@ proteinA = []
 proteinB = []
 domainA = []
 domainB = []
-proteinLen = {}
-domainLen = {}
 
 with open('InteractionLists/singleDomain.txt') as f:
     for line in f:
@@ -44,22 +46,18 @@ with open('InteractionLists/singleDomain.txt') as f:
 proteins = (proteinA + proteinB)
 domains = (domainA + domainB)
 
-proteinLengthOutput = open('ProteinFiles/proteinLength.txt', 'w')
-domainLengthOutput = open('ProteinFiles/DomainLength.txt', 'w')
+length = open('ProteinFiles/length.txt', 'w')
+length.write('Protein\tDomain\tProteinLength\tDomainLength\tDomainStart\tDomainEnd')
+done = []
 
 for i in range(0, len(proteins)):
     key = proteins[i] + '-' + domains[i]
-
-    if(key in domainLen):
+    
+    if(key in done):
         continue
+    done.append(key)
 
     [pLen, dLen] = pfamConnect(proteins[i])
 
-    if(not(proteins[i] in proteinLen)):
-        proteinLen[proteins[i]] = pLen
-        print(proteins[i] + '\t' + str(pLen))
-        proteinLengthOutput.write(proteins[i] + '\t' + str(pLen) + '\n')
-
-    domainLen[key] = dLen
-    print(proteins[i] + '-' + domains[i] + '\t' + str(dLen[domains[i]]))
-    domainLengthOutput.write(key + '\t' + str(dLen[domains[i]]) + '\n')
+    print(proteins[i] + '\t' + domains[i] + '\t' + str(pLen) + '\t' + str(dLen[domains[i]][2]) + '\t' + str(dLen[domains[i]][0]) + '\t' + str(dLen[domains[i]][1]) + '\n')
+    length.write(proteins[i] + '\t' + domains[i] + '\t' + str(pLen) + '\t' + str(dLen[domains[i]][2]) + '\t' + str(dLen[domains[i]][0]) + '\t' + str(dLen[domains[i]][1]) + '\n')
