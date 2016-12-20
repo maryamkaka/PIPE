@@ -11,8 +11,8 @@ output.write('ProteinA\tProteinB\tDM1\tDM2\tDM3\n')
 
 #calculate distance measure
 def distanceMeasure(aLab, aPipe, aLen, bLab, bPipe, bLen):
-    dA = max(aLab[0] - aPipe[0], aLab[1] - aPipe[1], 0)/aLen
-    dB = max(bLab[0] - bPipe[0], bLab[1] - bPipe[1], 0)/bLen
+    dA = max(aLab[0] - aPipe[0], aPipe[1] - aLab[1], 0)/aLen
+    dB = max(bLab[0] - bPipe[0], bPipe[1] - bLab[1], 0)/bLen
     return math.sqrt(math.pow(dA, 2) + math.pow(dB, 2))/math.sqrt(2)
 
 #walk through prediction and compare with pipe
