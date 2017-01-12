@@ -79,7 +79,6 @@ print('Mean length of interacting proteins: ' + str(sum(list(proteinLen.values()
 print('Mean length of interacting doamins: ' + str(sum(list(domainLen.values()))/len(list(domainLen.values()))))
 print('Mean relative length of interacting doamins (ie. len(domain)/len(protein)): ' + str(sum(list(relDomainLen.values()))/len(list(relDomainLen.values()))))
 
-
 # plots
 plt.figure(0)
 plt.hist(list(proteins.values()), bins=50)
