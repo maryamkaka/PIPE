@@ -24,9 +24,11 @@ with open('ProteinFiles/TestCase/Case3/interactingDomainPairs.txt') as f:
 #determine interacting domains for protein pair
 with open('ProteinFiles/TestCase/Case3/protein_pairs.txt') as f:
     domainMatch = []
-    one = open('InteractionLists/TestCase/one.txt', 'w')
-    none = open('InteractionLists/TestCase/none.txt', 'w')
-    multi = open('InteractionLists/TestCase/multi.txt', 'w')
+    one = open('InteractionLists/singleDomain.txt', 'w')
+    none = open('InteractionLists/noDomain.txt', 'w')
+    multi = open('InteractionLists/multiDomain.txt', 'w')
+
+    one.write('ProteinA\tProteinB\tDomainA\tDomainB\n')
 
     for line in f:
         domainMatch.append([])
@@ -48,7 +50,7 @@ with open('ProteinFiles/TestCase/Case3/protein_pairs.txt') as f:
 
         #output to file
         if(len(domainMatch[-1]) == 1):
-            one.write(line[0] + '\t' + line[1] + '\n')
+            one.write(line[0] + '\t' + line[1] + '\t' + domainMatch[-1][0][0] + '\t' + domainMatch[-1][0][1] + '\n')
         elif(len(domainMatch[-1]) == 0):
             none.write(line[0] + '\t' + line[1]+ '\n')
         else:

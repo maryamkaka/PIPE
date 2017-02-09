@@ -90,3 +90,7 @@ ENV/
 
 #large files
 Accessing_3did/3did_flat
+
+#ignore PIPE code and pipe results
+PIPE code/*
+pipe_results/*
